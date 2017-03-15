@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Atomjaylee</title>
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css">
+  <link rel="shortcut icon" href="./face.ico" />
+  <link rel="bookmark" href="./face.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+  window.$docsify = {
+    // 加载 _sidebar.md
+    loadSidebar: true,
+    loadNavbar: true,
+    coverpage: false,
+    repo: 'https://github.com/atomjaylee',
+    name: '学习笔记',
+    search: {
+      maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      paths: 'auto', // or 'auto'
+      placeholder: '搜索',
+      noData: '无结果!',
+    }
+  }
+</script>
+<script src="//unpkg.com/vue"></script>
+<script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+<!-- 外链脚本 -->
+<script src="//unpkg.com/docsify/lib/plugins/external-script.js"></script>
+
+</html>
