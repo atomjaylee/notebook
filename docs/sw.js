@@ -1,10 +1,13 @@
+/* ===========================================================
+ * docsify sw.js
+ * ===========================================================
+ * Copyright 2016 @huxpro
+ * Licensed under Apache 2.0
+ * Register service worker.
+ * ========================================================== */
+
 const RUNTIME = 'docsify'
-const HOSTNAME_WHITELIST = [
-  self.location.hostname,
-  'fonts.gstatic.com',
-  'fonts.googleapis.com',
-  'unpkg.com'
-]
+const HOSTNAME_WHITELIST = [self.location.hostname, 'fonts.gstatic.com', 'fonts.googleapis.com', 'unpkg.com']
 
 // The Util Function to hack URLs of intercepted requests
 const getFixedUrl = (req) => {
@@ -23,7 +26,9 @@ const getFixedUrl = (req) => {
   // Until cache mode of Fetch API landed, we have to workaround cache-busting with query string.
   // Cache-Control-Bug: https://bugs.chromium.org/p/chromium/issues/detail?id=453190
   if (url.hostname === self.location.hostname) {
-    url.search += (url.search ? '&' : '?') + 'cache-bust=' + now
+    url.search += (url.search
+      ? '&'
+      : '?') + 'cache-bust=' + now
   }
   return url.href
 }
@@ -52,24 +57,21 @@ self.addEventListener('fetch', event => {
     // Upgrade from Jake's to Surma's: https://gist.github.com/surma/eb441223daaedf880801ad80006389f1
     const cached = caches.match(event.request)
     const fixedUrl = getFixedUrl(event.request)
-    const fetched = fetch(fixedUrl, { cache: 'no-store' })
+    const fetched = fetch(fixedUrl, {cache: 'no-store'})
     const fetchedCopy = fetched.then(resp => resp.clone())
 
     // Call respondWith() with whatever we get first.
     // If the fetch fails (e.g disconnected), wait for the cache.
     // If there’s nothing in cache, wait for the fetch.
     // If neither yields a response, return offline pages.
-    event.respondWith(
-      Promise.race([fetched.catch(_ => cached), cached])
-        .then(resp => resp || fetched)
-        .catch(_ => { /* eat any errors */ })
-    )
+    event.respondWith(Promise.race([
+      fetched.catch(_ => cached),
+      cached
+    ]).then(resp => resp || fetched).catch(_ => {/* eat any errors */
+    }))
 
     // Update the cache with the version we fetched (only for ok status)
-    event.waitUntil(
-      Promise.all([fetchedCopy, caches.open(RUNTIME)])
-        .then(([response, cache]) => response.ok && cache.put(event.request, response))
-        .catch(_ => { /* eat any errors */ })
-    )
+    event.waitUntil(Promise.all([fetchedCopy, caches.open(RUNTIME)]).then(([response, cache]) => response.ok && cache.put(event.request, response)).catch(_ => {/* eat any errors */
+    }))
   }
 })
