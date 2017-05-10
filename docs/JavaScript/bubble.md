@@ -20,7 +20,7 @@ child.addEventListener('click',function(e){
   console.log('你点击了子元素')
 })
 ```
-![img](../img/冒泡.png)
+![img](/img/冒泡.png)
 ***
 
 - `捕获`: 自己 ==> 子节点  
