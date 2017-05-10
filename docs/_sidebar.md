@@ -5,7 +5,7 @@
 - React
   - [简介](React/README.md)
 - Javascript
-  - [冒泡-捕获-委派](Javascript/bubble.md)
+  - [冒泡-捕获-委派](JavaScript/bubble.md)
 - ECMAscript6
   - [简介](ECMAscript6/README.md)
 - sass/css
