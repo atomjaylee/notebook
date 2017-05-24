@@ -2,6 +2,7 @@
   - [简介](Node/README.md)
 - Vue
   - [简介](Vue/README.md)
+  - [Vuex](Vue/Vuex学习笔记.md)
 - React
   - [简介](React/README.md)
 - Javascript
