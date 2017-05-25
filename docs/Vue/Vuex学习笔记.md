@@ -96,3 +96,24 @@ store.commit('increment', {
 })
 ```
 **mutations必须是同步函数**，否则状态改变不可追踪。。
+- `action`  
+`action`对于`mutations`相当于`getters`对于`state`,都是对后者的处理  
+1.`action`提交的是`mutations`不是直接变更状态；2.`action`可以包含任意异步操作
+```js
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment')
+    }
+  }
+})
+```
+`mutations`需要`store.commit`来触发，那么`actions`需要`store.dispatch`来派发，他也有自己的`mapActions`
