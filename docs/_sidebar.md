@@ -7,6 +7,7 @@
   - [简介](React/README.md)
 - Javascript
   - [冒泡-捕获-委派](JavaScript/bubble.md)
+  - [常用代码](JavaScript/常用代码.md)
 - ECMAscript6
   - [简介](ECMAscript6/README.md)
 - sass/css
