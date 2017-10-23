@@ -53,7 +53,7 @@ p{
 使用`@for`声明
 `scss`文件：
 ```scss
-  @for $i 1 through 3 {
+  @for $i from 1 through 3 {
     .item-#{$i} { width: 10px * $i }
   }
 ```
