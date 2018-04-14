@@ -4,7 +4,7 @@
   * [简介](Vue/README.md)
   * [Vuex](Vue/Vuex学习笔记.md)
 * React
-  * [简介](React/README.md)
+  * [redux的使用](React/redux的使用.md)
 * Javascript
   * [冒泡-捕获-委派](JavaScript/bubble.md)
   * [String 知识梳理](JavaScript/String梳理.md)
