@@ -163,7 +163,7 @@ export default connect(
 
 * 这就意味着在每个使用该功能的 component 中都要写同样的代码。
 
-## 引入 Redux-thunk
+## 3.引入 Redux-thunk
 
 接着上面的问题，我们最好的方式是将这些逻辑代码封装一下，这样就可以在不同的 component 中调用了。那么我们的思路是这样的：
 
