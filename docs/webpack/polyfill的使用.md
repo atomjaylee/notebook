@@ -79,6 +79,9 @@ yarn add babel-preset-env
     }]
   ]
 }
+
+// .index.js
+import "babel-polyfill"
 ```
 
 更详细介绍 👉 [babel-preset-env: a preset that configures Babel for you](http://2ality.com/2017/02/babel-preset-env.html)
